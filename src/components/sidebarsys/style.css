@@ -1,0 +1,264 @@
+.side-menu{
+  position: fixed;
+  background: #3C3C3C;
+  width: 300px;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 20px 20px;
+  transition: width .1s ease-in;
+
+}
+
+.side-menu.inactive {
+  width: 80px;
+}
+
+.side-menu .top-section{
+  position: relative;
+}
+
+.side-menu .top-section .logo{
+  /* width: 40px;
+  height: 40px; */
+  /* overflow: hidden; */
+  display: inline-flex;
+  align-items: center;
+}
+
+.side-menu .top-section .logo img {
+  max-width: 40px;
+  max-height: 40px;
+}
+
+.side-menu .top-section .logo h2{
+  color: #C0C0C0;
+  font-size: 20px;
+  padding: 0px 21px;
+  transition: opacity .15s ease-in;
+}
+
+.side-menu.inactive .top-section .logo h2{
+  max-width: 40px;
+  max-height: 40px;
+  opacity: 0;
+}
+
+.side-menu .top-section .toggle-menu-btn{
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  right: 0px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  transition: right .1s ease-in;
+}
+
+.side-menu.inactive .top-section .toggle-menu-btn{
+  right: -60px;
+  transition: right .1s ease-in;
+}
+
+.side-menu .top-section .toggle-menu-btn img{
+  width: 30px;
+  height: 30px;
+  transition: all .1s ease-in;
+}
+
+.side-menu .top-section .toggle-menu-btn img:hover{
+  transform: scale(1.2);
+}
+
+.side-menu .search-controller input::placeholder{
+color: #3C3C3C;
+padding: 2px;
+}
+
+.side-menu .search-controller {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+}
+
+.side-menu .search-controller .search-btn{
+  position: absolute;
+  background: transparent;
+  border: 0;
+  font-size: 20px;
+  padding: 0px 10px;
+  cursor: pointer;
+}
+
+.side-menu .search-controller .search-btn img{
+  width: 20px;
+  height: 20px;
+}
+
+.side-menu .search-controller input[type=text]{
+  border: 0;
+  outline: none;
+  height: 35px;
+  background: #808080;
+  border-radius: 5px;
+  display: block;
+  margin: 20px 0;
+  width: 100%;
+  box-sizing: border-box;
+  padding-left:  40px;
+  color: #3C3C3C;
+  font-weight: bold;
+}
+
+.divider{
+  width: 100%;
+  height: 1px;
+  border-radius: 1px;
+  background: #808080;
+  margin: 10px 0px;
+}
+
+.side-menu .main-menu{
+  margin: 0px;
+}
+
+.side-menu .main-menu .menu-item{
+  display: block;
+  color: #C0C0C0;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: opacity .1s, background-color .1s ease-in;
+}
+
+.side-menu .main-menu .menu-item:hover{
+  background: #696969;
+}
+
+.side-menu .main-menu .menu-item.active{
+  background-color: #808080;
+  border-radius: 5px;
+  color:#fff;
+}
+
+.side-menu .main-menu .menu-item .menu-icon{
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  line-height: 50px;
+  text-align: center;
+}
+
+.side-menu .main-menu .menu-item span {
+  position: absolute;
+  display: inline-block;
+  line-height: 40px;
+  opacity: 1;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.side-menu.inactive .main-menu .menu-item span {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.side-menu .main-menu .menu-item .menu-icon img{
+  width: 25px;
+  height: 25px;
+}
+.side-menu .main-menu .sub-menu{
+  color: #808080;
+  margin-left: 20px;
+  border-left: 1px solid #808080;
+  box-sizing: border-box;
+  padding-left: 20px;
+  max-height: 0;
+  overflow: hidden;
+  text-decoration: none;
+  transition: max-height 0.2s ease-in;
+}
+
+.side-menu .main-menu .sub-menu.active{
+  max-height: 200px;
+}
+
+.side-menu .main-menu .sub-menu.active a{
+  background-color: none;
+  border-radius: 3px;
+}
+
+.side-menu .main-menu .sub-menu.active a:hover{
+  background-color: #696969;
+}
+
+.side-menu .main-menu .sub-menu a{
+  display: block;
+  margin: 5px 0;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #C0C0C0;
+  box-sizing: border-box;
+  padding: 5px;
+}
+
+.side-menu .main-menu .sub-menu a.active{
+  background: #808080;
+  display: block;
+  border-radius: 3px;
+  color: #fff;
+}
+
+.side-menu-footer {
+  width: 100%;
+  background: #3C3C3C;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 20px;
+  box-sizing: border-box;
+  display: inline-block;
+}
+
+.side-menu-footer .avatar{
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+  border-radius: 50%;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.side-menu-footer .avatar img {
+  max-width: 100%;
+}
+
+.side-menu-footer .user-info{
+  display: inline-block;
+  margin: 10px 10px;
+  color: #808080;
+  position: absolute;
+  opacity: 1;
+  transition: opacity 0.5s ease-in;
+}
+
+.side-menu.inactive .side-menu-footer .user-info{
+  opacity: 0;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+
+.side-menu-footer .user-info h5{
+  font-size: 15px;
+}
+
+.side-menu-footer .user-info p{
+  font-size: 12px;
+}

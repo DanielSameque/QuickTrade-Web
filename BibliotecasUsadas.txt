@@ -1,0 +1,8 @@
+npm i axios
+npm i react-router-dom
+//npm install --save styled-components
+//npm install --save react-toastify
+npm install @mui/material @emotion/react @emotion/styled
+npm install @mui/material @mui/styled-engine-sc
+npm install @mui/icons-material
+npm install @mui/x-data-grid
