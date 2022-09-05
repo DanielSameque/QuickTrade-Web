@@ -1,4 +1,4 @@
-import { createContext, useState, useContext, useEffect } from 'react'
+import { createContext, useState, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 const TabContext = createContext()
@@ -8,20 +8,7 @@ export const useTabContext = () => {
 }
 
 export const TabProvider = ({ children }) => {
-  // const OldTabArray = array => {
-  //   //console.log(`Array antigo ${array.map(tabArray => tabArray.id)}`)
-  //   const [oldArray, setOldArray] = useState([])
-  //   setOldArray(array)
-  //   return oldArray
-  // }
-
   const [tabArray, setTabArray] = useState([])
-
-  // useEffect(() => {
-  //   {
-  //     setTabArray(OldTabArray())
-  //   }
-  // })
 
   const [tabPosition, setTabPosition] = useState()
   const navigate = useNavigate()
@@ -85,8 +72,6 @@ export const TabProvider = ({ children }) => {
     setTabPosition(tabArrayClone[tabArrayClone.length - 1])
   }
 
-  // OldTabArray()
-
   return (
     <TabContext.Provider
       value={{
@@ -95,7 +80,6 @@ export const TabProvider = ({ children }) => {
         AddTab,
         RemoveTab,
         ChangePosition
-        // ,OldTabArray
       }}
     >
       {children}

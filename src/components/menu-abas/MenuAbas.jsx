@@ -1,14 +1,6 @@
 import { useTabContext } from '../../contexts';
 import { Tabs, Tab, Box, useTheme } from '@mui/material';
 import { Close } from '@mui/icons-material';
-import { useEffect } from 'react';
-
-function a11yProps(index) {
-  return {
-    id: `simple-tab-${index}`,
-    'aria-controls': `simple-tabpanel-${index}`,
-  };
-}
 
 export const MenuAbas = () => {
   const theme = useTheme()

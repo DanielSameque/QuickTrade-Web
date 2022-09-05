@@ -15,7 +15,6 @@ import './style.css'
 import { MenuLateral } from '../../components';
 import { MenuSuperior } from '../../components';
 import { Alert, Snackbar } from '@mui/material';
-import BasicTabs from '../../layouts/Aba';
 
 function Home() {
   const [openSnackbar, setOpenSnackbar] = useState(true);
@@ -32,6 +31,7 @@ function Home() {
       <MenuLateral>
 
         <MenuSuperior />
+        <div>Teste</div>
         <MenuAbas />
         <Routes>
           <Route path="/" element={<DashBoard />} />
