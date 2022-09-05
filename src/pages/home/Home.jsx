@@ -33,7 +33,6 @@ function Home() {
 
         <MenuSuperior />
         <MenuAbas />
-        <BasicTabs />
         <Routes>
           <Route path="/" element={<DashBoard />} />
           <Route path="/cadastros/financas/contas" element={<Contas />} />

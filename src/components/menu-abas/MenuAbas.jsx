@@ -19,9 +19,6 @@ export const MenuAbas = () => {
     <Box width='100%' sx={{
       borderBottom: 1, borderColor: 'divider',
     }}>
-      {tabArray.map((tabArray) =>
-        <div key={tabArray.id}> nome: {tabArray.name} id: {tabArray.id}</div>
-      )}
       <Tabs size='small' value={tabPosition} onChange={() => (ChangePosition)} aria-label="abas" variant="scrollable"
         allowScrollButtonsMobile TabIndicatorProps={{ style: { background: '#FDBA2A' } }}
         textColor='inherit'
