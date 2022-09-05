@@ -31,7 +31,6 @@ function Home() {
       <MenuLateral>
 
         <MenuSuperior />
-        <div>Teste</div>
         <MenuAbas />
         <Routes>
           <Route path="/" element={<DashBoard />} />
