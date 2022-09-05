@@ -25,7 +25,7 @@
   },
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build -r https://DanielSameque.github.io/quicktrade-web",
+    "deploy": "gh-pages -d build -r gh repo clone DanielSameque/quicktrade-web",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
