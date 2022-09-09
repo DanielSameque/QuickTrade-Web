@@ -3,23 +3,24 @@ import { createTheme } from '@mui/material'
 export const LightTheme = createTheme({
   palette: {
     primary: {
-      main: '#3C3C3C',
-      dark: '#808080',
-      light: '#f5f5f5',
-      contrastText: '#3C3C3C'
+      main: '#606060',
+      dark: '#CCCCCC',
+      light: '#C1C1C1',
+      contrastText: '#606060'
     },
     secondary: {
-      main: '#3C3C3C',
+      main: '#606060',
       dark: '#FDBA2A',
       light: '#FDBA2A',
-      contrastText: '#c0c0c0'
+      contrastText: '#C1C1C1'
     },
     background: {
-      default: '#c0c0c0',
-      paper: '#f5f5f5'
+      default: '#CCCCCC',
+      paper: '#C1C1C1',
+      tissue: '#696969'
     },
-    AppBar: {
-      main: '#c0c0c0'
+    appbar: {
+      main: '#606060'
     }
   }
 })

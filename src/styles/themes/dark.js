@@ -5,7 +5,7 @@ export const DarkTheme = createTheme({
     primary: {
       main: '#808080',
       dark: '#212121',
-      light: '#ffffff',
+      light: '#F0F0F0',
       contrastText: '#808080'
     },
     secondary: {
@@ -16,7 +16,7 @@ export const DarkTheme = createTheme({
     },
     background: {
       default: '#212121',
-      paper: '#3C3C3C',
+      paper: '#2C2C2C',
       tissue: '#696969'
     },
     appbar: {
