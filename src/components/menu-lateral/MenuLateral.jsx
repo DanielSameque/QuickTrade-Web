@@ -99,17 +99,17 @@ export const MenuLateral = ({ children }) => {
 
                 <ListItemButton selected={selectedIndex === 0}
                   onClick={(event) => handleListItemClick(event, 0, false, 'dashboard')}>
-                  <ListItemIcon>
+                  <ListItemIcon sx={{ height: theme.spacing(3.5) }}>
                     <img src={DashBoard_svg} alt='DashBoard' />
                   </ListItemIcon>
                   <ListItemText primary='DashBoard' />
                 </ListItemButton>
 
-                <Divider />
+                <Divider variant='middle' />
 
                 <ListItemButton selected={selectedIndex === 1.00}
                   onClick={(event) => handleListItemClick(event, 1.00, true, 'cadastros')}>
-                  <ListItemIcon>
+                  <ListItemIcon sx={{ height: theme.spacing(3.5) }}>
                     <img src={Cadastros_svg} alt='Cadastros' />
                   </ListItemIcon>
                   <ListItemText primary='Cadastros' />
@@ -118,9 +118,9 @@ export const MenuLateral = ({ children }) => {
 
                 <Collapse in={openListCadatros} timeout='auto' unmountOnExit>
                   <List component='div' disablePadding dense >
-                    <ListItemButton sx={{ pl: 4 }} selected={selectedIndex === 1.10}
+                    <ListItemButton selected={selectedIndex === 1.10}
                       onClick={(event) => handleListItemClick(event, 1.10, true, 'financas')}>
-                      <ListItemIcon>
+                      <ListItemIcon sx={{ height: theme.spacing(3.5) }}>
                         <img src={Financas_svg} alt='Finanças' />
                       </ListItemIcon>
                       <ListItemText primary='Finanças' />
@@ -133,7 +133,7 @@ export const MenuLateral = ({ children }) => {
 
                 <Collapse in={openListCadatros} timeout='auto' unmountOnExit>
                   <List component='div' disablePadding dense >
-                    <ListItemButton sx={{ pl: 4 }} selected={selectedIndex === 1.20}
+                    <ListItemButton selected={selectedIndex === 1.20}
                       onClick={(event) => handleListItemClick(event, 1.20, true, 'pessoasbens')}>
                       <ListItemIcon>
                         <img src={PessoasBens_svg} alt='Pessoas e Bens' />
@@ -146,88 +146,19 @@ export const MenuLateral = ({ children }) => {
 
                 <PessoasBens openListPessoasBens={openListPessoasBens} selectedIndex={selectedIndex} handleListItemClick={handleListItemClick} />
 
-                {/* <Collapse in={openListPessoasBens} timeout='auto' unmountOnExit>
-                  <List component='div' disablePadding dense>
-                    <ListItemButton sx={{ pl: 6 }} selected={selectedIndex === 2} onClick={(event) => handleListItemClick(event, 2)}>
-                      <ListItemIcon>
-                        <img src={Contas_svg} alt='Contas' />
-                      </ListItemIcon>
-                      <ListItemText primary='Contas' />
-                    </ListItemButton>
-                  </List>
-                  <List component='div' disablePadding dense>
-                    <ListItemButton sx={{ pl: 6 }} selected={selectedIndex === 3} onClick={(event) => handleListItemClick(event, 3)}>
-                      <ListItemIcon>
-                        <img src={CentroDeCusto_svg} alt='CentroDeCusto' />
-                      </ListItemIcon>
-                      <ListItemText primary='Centro de Custo' />
-                    </ListItemButton>
-                  </List>
-                  <List component='div' disablePadding dense>
-                    <ListItemButton sx={{ pl: 6 }} selected={selectedIndex === 4} onClick={(event) => handleListItemClick(event, 4)}>
-                      <ListItemIcon>
-                        <img src={Historico_svg} alt='Historico' />
-                      </ListItemIcon>
-                      <ListItemText primary='Histórios' />
-                    </ListItemButton>
-                  </List>
-                  <List component='div' disablePadding dense>
-                    <ListItemButton sx={{ pl: 6 }} selected={selectedIndex === 5} onClick={(event) => handleListItemClick(event, 5)}>
-                      <ListItemIcon>
-                        <img src={Segmentos_svg} alt='Segmentos' />
-                      </ListItemIcon>
-                      <ListItemText primary='Segmentos' />
-                    </ListItemButton>
-                  </List>
-                </Collapse> */}
-
-                <Divider />
+                <Divider variant='middle' />
 
                 <ListItemButton selected={selectedIndex === 6} onClick={(event) => handleListItemClick(event, 6)}>
-                  <ListItemIcon>
+                  <ListItemIcon sx={{ height: theme.spacing(3.5) }}>
                     <img src={Lancamentos_svg} alt='Lançamentos' />
-                  </ListItemIcon>
+                  </ListItemIcon >
                   <ListItemText primary='Lançamentos' />
                   {false ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
                 </ListItemButton>
 
-                {/* <Collapse in={null} timeout='auto' unmountOnExit>
-                  <List component='div' disablePadding dense>
-                    <ListItemButton sx={{ pl: 4 }} selected={selectedIndex === 7} onClick={(event) => handleListItemClick(event, 7)}>
-                      <ListItemIcon>
-                        <img src={Contas_svg} alt='Contas' />
-                      </ListItemIcon>
-                      <ListItemText primary='Contas' />
-                    </ListItemButton>
-                  </List>
-                  <List component='div' disablePadding dense>
-                    <ListItemButton sx={{ pl: 4 }} selected={selectedIndex === 8} onClick={(event) => handleListItemClick(event, 8)}>
-                      <ListItemIcon>
-                        <img src={CentroDeCusto_svg} alt='CentroDeCusto' />
-                      </ListItemIcon>
-                      <ListItemText primary='Centro de Custo' />
-                    </ListItemButton>
-                  </List>
-                  <List component='div' disablePadding dense>
-                    <ListItemButton sx={{ pl: 4 }} selected={selectedIndex === 9} onClick={(event) => handleListItemClick(event, 9)}>
-                      <ListItemIcon>
-                        <img src={Historico_svg} alt='Historico' />
-                      </ListItemIcon>
-                      <ListItemText primary='Histórios' />
-                    </ListItemButton>
-                  </List>
-                  <List component='div' disablePadding dense>
-                    <ListItemButton sx={{ pl: 4 }} selected={selectedIndex === 10} onClick={(event) => handleListItemClick(event, 10)}>
-                      <ListItemIcon>
-                        <img src={Segmentos_svg} alt='Segmentos' />
-                      </ListItemIcon>
-                      <ListItemText primary='Segmentos' />
-                    </ListItemButton>
-                  </List>
-                </Collapse> */}
+                <Divider variant='middle' />
 
               </List>
-
             </Box>
           </Box >
         </Collapse>

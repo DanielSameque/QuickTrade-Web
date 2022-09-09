@@ -1,6 +1,6 @@
 import { useSysContext } from '../../contexts'
 
-import { Collapse, List, ListItemButton, ListItemIcon, ListItemText } from "@mui/material"
+import { Collapse, List, ListItemButton, ListItemIcon, ListItemText, useTheme } from "@mui/material"
 
 import Clientes_svg from '../../assets/icons/Clientes.svg'
 import Fornecedores_svg from '../../assets/icons/Fornecedores.svg'
@@ -11,6 +11,7 @@ import Bens_svg from '../../assets/icons/Bens.svg'
 
 export const PessoasBens = (props) => {
   const { segmentos } = useSysContext()
+  const theme = useTheme()
   return (
     <>
       <Collapse in={props.openListPessoasBens} timeout='auto' unmountOnExit>
@@ -18,7 +19,7 @@ export const PessoasBens = (props) => {
         <List component='div' disablePadding dense>
           <ListItemButton sx={{ pl: 6 }} selected={props.selectedIndex === 1.21}
             onClick={(event) => props.handleListItemClick(event, 1.21, false, 'clientes')}>
-            <ListItemIcon>
+            <ListItemIcon sx={{ height: theme.spacing(3.5) }}>
               <img src={Clientes_svg} alt='Clientes' />
             </ListItemIcon>
             <ListItemText primary='Clientes' />
@@ -28,7 +29,7 @@ export const PessoasBens = (props) => {
         <List component='div' disablePadding dense>
           <ListItemButton sx={{ pl: 6 }} selected={props.selectedIndex === 1.22}
             onClick={(event) => props.handleListItemClick(event, 1.22, false, 'fornecedores')}>
-            <ListItemIcon>
+            <ListItemIcon sx={{ height: theme.spacing(3.5) }}>
               <img src={Fornecedores_svg} alt='Fornecedores' />
             </ListItemIcon>
             <ListItemText primary='Fornecedores' />
