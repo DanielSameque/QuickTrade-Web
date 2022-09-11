@@ -1,5 +1,5 @@
 import { useDrawerContext, useTabContext } from '../../contexts'
-import { Avatar, Drawer, useTheme, Divider, List, ListItemButton, ListItemIcon, ListItemText, useMediaQuery, Typography, Collapse } from '@mui/material'
+import { Avatar, Drawer, useTheme, Divider, List, ListItemButton, ListItemIcon, ListItemText, useMediaQuery, Typography, Collapse, Tooltip, Zoom } from '@mui/material'
 import { Box } from '@mui/system'
 
 import QuicktradeLogo_svg from '../../assets/imgsys/QuickTrade.svg'
@@ -14,7 +14,7 @@ import Lancamentos_svg from '../../assets/icons/Lancamentos.svg'
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Financas from './Financas'
 import PessoasBens from './PessoasBens'
@@ -64,13 +64,13 @@ export const MenuLateral = ({ children }) => {
     }
   };
 
-  const onClickList = () => {
-    return (isDrawerOpen && !smDown ? (toggleDrawerOpen()) : null)
-  }
+  // const onClickList = () => {
+  //   return (isDrawerOpen && !smDown ? (toggleDrawerOpen()) : null)
+  // }
 
-  useEffect(() => {
-    setOpenListCadatros(false); setOpenListFinancas(false); setOpenListPessoasBens(false)
-  }, [isDrawerOpen]);
+  // useEffect(() => {
+  //   setOpenListCadatros(false); setOpenListFinancas(false); setOpenListPessoasBens(false)
+  // }, [isDrawerOpen]);
 
   return (
     <>
@@ -95,34 +95,42 @@ export const MenuLateral = ({ children }) => {
             <Divider />
 
             <Box flex={1} >
-              <List component='nav' onClick={onClickList} sx={{ padding: 0 }}>
+              <List component='nav' onClick={null/*onClickList*/} sx={{ padding: 0 }}>
 
                 <ListItemButton selected={selectedIndex === 0}
                   onClick={(event) => handleListItemClick(event, 0, false, 'dashboard')}>
-                  <ListItemIcon sx={{ height: theme.spacing(3.5) }}>
-                    <img src={DashBoard_svg} alt='DashBoard' />
-                  </ListItemIcon>
+                  <Tooltip title='DashBoard' placement='right' TransitionComponent={Zoom} arrow>
+                    <ListItemIcon sx={{ height: theme.spacing(3.5) }}>
+                      <img src={DashBoard_svg} alt='DashBoard' />
+                    </ListItemIcon>
+                  </Tooltip>
                   <ListItemText primary='DashBoard' />
                 </ListItemButton>
 
-                <Divider variant='middle' />
+                <Divider />
 
                 <ListItemButton selected={selectedIndex === 1.00}
                   onClick={(event) => handleListItemClick(event, 1.00, true, 'cadastros')}>
-                  <ListItemIcon sx={{ height: theme.spacing(3.5) }}>
-                    <img src={Cadastros_svg} alt='Cadastros' />
-                  </ListItemIcon>
+                  <Tooltip title='Cadastros' placement='right' TransitionComponent={Zoom} arrow>
+                    <ListItemIcon sx={{ height: theme.spacing(3.5) }}>
+                      <img src={Cadastros_svg} alt='Cadastros' />
+                    </ListItemIcon>
+                  </Tooltip>
                   <ListItemText primary='Cadastros' />
                   {openListCadatros ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
                 </ListItemButton>
 
                 <Collapse in={openListCadatros} timeout='auto' unmountOnExit>
-                  <List component='div' disablePadding dense >
+                  <List component='div' disablePadding dense
+                    sx={{ bgcolor: openListFinancas ? theme.palette.primary.dark : null }}
+                  >
                     <ListItemButton selected={selectedIndex === 1.10}
                       onClick={(event) => handleListItemClick(event, 1.10, true, 'financas')}>
-                      <ListItemIcon sx={{ height: theme.spacing(3.5) }}>
-                        <img src={Financas_svg} alt='Finanças' />
-                      </ListItemIcon>
+                      <Tooltip title='Finanças' placement='right' TransitionComponent={Zoom} arrow>
+                        <ListItemIcon sx={{ height: theme.spacing(3.5) }}>
+                          <img src={Financas_svg} alt='Finanças' />
+                        </ListItemIcon>
+                      </Tooltip>
                       <ListItemText primary='Finanças' />
                       {openListFinancas ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
                     </ListItemButton>
@@ -131,13 +139,19 @@ export const MenuLateral = ({ children }) => {
 
                 <Financas openListFinancas={openListFinancas} selectedIndex={selectedIndex} handleListItemClick={handleListItemClick} />
 
+                <Divider />
+
                 <Collapse in={openListCadatros} timeout='auto' unmountOnExit>
-                  <List component='div' disablePadding dense >
+                  <List component='div' disablePadding dense
+                    sx={{ bgcolor: openListPessoasBens ? theme.palette.primary.dark : null }}
+                  >
                     <ListItemButton selected={selectedIndex === 1.20}
                       onClick={(event) => handleListItemClick(event, 1.20, true, 'pessoasbens')}>
-                      <ListItemIcon>
-                        <img src={PessoasBens_svg} alt='Pessoas e Bens' />
-                      </ListItemIcon>
+                      <Tooltip title='Pessoas e Bens' placement='right' TransitionComponent={Zoom} arrow>
+                        <ListItemIcon>
+                          <img src={PessoasBens_svg} alt='Pessoas e Bens' />
+                        </ListItemIcon>
+                      </Tooltip>
                       <ListItemText primary='Pessoas e Bens' />
                       {openListPessoasBens ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
                     </ListItemButton>
@@ -146,17 +160,19 @@ export const MenuLateral = ({ children }) => {
 
                 <PessoasBens openListPessoasBens={openListPessoasBens} selectedIndex={selectedIndex} handleListItemClick={handleListItemClick} />
 
-                <Divider variant='middle' />
+                <Divider />
 
-                <ListItemButton selected={selectedIndex === 6} onClick={(event) => handleListItemClick(event, 6)}>
-                  <ListItemIcon sx={{ height: theme.spacing(3.5) }}>
-                    <img src={Lancamentos_svg} alt='Lançamentos' />
-                  </ListItemIcon >
+                <ListItemButton selected={selectedIndex === 2} onClick={(event) => handleListItemClick(event, 6)}>
+                  <Tooltip title='Lançamentos' placement='right' TransitionComponent={Zoom} arrow>
+                    <ListItemIcon sx={{ height: theme.spacing(3.5) }}>
+                      <img src={Lancamentos_svg} alt='Lançamentos' />
+                    </ListItemIcon >
+                  </Tooltip>
                   <ListItemText primary='Lançamentos' />
                   {false ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
                 </ListItemButton>
 
-                <Divider variant='middle' />
+                <Divider />
 
               </List>
             </Box>

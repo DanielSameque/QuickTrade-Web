@@ -1,13 +1,14 @@
 import { useEffect, useState } from 'react';
 
-import api from '../../../services/api';
+import api from '../../../../services/api';
 
 import { GridActionsCellItem } from "@mui/x-data-grid"
-import { GridSimples } from "../../../layouts"
+import { GridSimples } from "../../../../layouts"
 
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import PrintIcon from '@mui/icons-material/Print';
+import ContasForm from './ContasForm';
 
 const columns = [
   { field: 'id', headerName: 'Id', width: 100, hideable: false, headerClassName: 'theme-header-grid' },
@@ -50,7 +51,7 @@ const columns = [
   }
 ]
 
-const Contas = () => {
+const ContasGrid = () => {
   const [contas, setContas] = useState([]);
 
   useEffect(() => {
@@ -63,7 +64,11 @@ const Contas = () => {
       })
   }, [])
 
-  return (<GridSimples rows={contas} columns={columns} />)
+  return (
+    <>
+      <GridSimples rows={contas} columns={columns} />
+      <ContasForm name='nomeCompleto' />
+    </>)
 }
 
-export default Contas
+export default ContasGrid

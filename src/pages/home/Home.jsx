@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { DashBoard, MenuAbas } from '../../components';
-import Contas from '../../components/cadastros/financas/Contas';
+import ContasGrid from '../../components/cadastros/financas/Contas/ContasGrid';
 import CentrodeCusto from '../../components/cadastros/financas/CentrodeCusto'
 import Historicos from '../../components/cadastros/financas/Historicos'
 import Segmentos from '../../components/cadastros/financas/Segmentos'
@@ -29,12 +29,11 @@ function Home() {
     <>
 
       <MenuLateral>
-
         <MenuSuperior />
         <MenuAbas />
         <Routes>
           <Route path="/" element={<DashBoard />} />
-          <Route path="/cadastros/financas/contas" element={<Contas />} />
+          <Route path="/cadastros/financas/contas" element={<ContasGrid />} />
           <Route path="/cadastros/financas/centrodecusto" element={<CentrodeCusto />} />
           <Route path="/cadastros/financas/historicos" element={<Historicos />} />
           <Route path="/cadastros/financas/segmentos" element={<Segmentos />} />
@@ -47,7 +46,6 @@ function Home() {
           <Route path="/utilitarios" element={<utilitarios />} />
           <Route path="/configuracao" element={<configuracao />} />
         </Routes>
-
       </MenuLateral>
       < Snackbar open={openSnackbar} onClose={handleClose} autoHideDuration={2000}>
         <Alert severity='success'>

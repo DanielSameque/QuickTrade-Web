@@ -1,6 +1,6 @@
 import { useSysContext } from '../../contexts'
 
-import { Collapse, List, ListItemButton, ListItemIcon, ListItemText, useTheme } from "@mui/material"
+import { Collapse, List, ListItemButton, ListItemIcon, ListItemText, Tooltip, useTheme, Zoom } from "@mui/material"
 
 import Contas_svg from '../../assets/icons/Contas.svg'
 import CentroDeCusto_svg from '../../assets/icons/CentroDeCusto.svg'
@@ -22,9 +22,11 @@ export const Financas = (props) => {
         <List component='div' disablePadding dense>
           <ListItemButton selected={props.selectedIndex === 1.11}
             onClick={(event) => props.handleListItemClick(event, 1.11, false, 'contas')}>
-            <ListItemIcon sx={{ height: theme.spacing(3.5) }}>
-              <img src={Contas_svg} alt='Contas' />
-            </ListItemIcon>
+            <Tooltip title='Contas' placement='right' TransitionComponent={Zoom} arrow>
+              <ListItemIcon sx={{ height: theme.spacing(3.5) }}>
+                <img src={Contas_svg} alt='Contas' />
+              </ListItemIcon>
+            </Tooltip>
             <ListItemText primary='Contas' />
           </ListItemButton>
         </List>
@@ -32,9 +34,11 @@ export const Financas = (props) => {
         <List component='div' disablePadding dense>
           <ListItemButton selected={props.selectedIndex === 1.12}
             onClick={(event) => props.handleListItemClick(event, 1.12, false, 'centrodecusto')}>
-            <ListItemIcon sx={{ height: theme.spacing(3.5) }}>
-              <img src={CentroDeCusto_svg} alt='CentroDeCusto' />
-            </ListItemIcon>
+            <Tooltip title='Centro De Custo' placement='right' TransitionComponent={Zoom} arrow>
+              <ListItemIcon sx={{ height: theme.spacing(3.5) }}>
+                <img src={CentroDeCusto_svg} alt='CentroDeCusto' />
+              </ListItemIcon>
+            </Tooltip>
             <ListItemText primary='Centro de Custo' />
           </ListItemButton>
         </List>
@@ -42,9 +46,11 @@ export const Financas = (props) => {
         <List component='div' disablePadding dense>
           <ListItemButton selected={props.selectedIndex === 1.13}
             onClick={(event) => props.handleListItemClick(event, 1.13, false, 'historicos')}>
-            <ListItemIcon sx={{ height: theme.spacing(3.5) }}>
-              <img src={Historico_svg} alt='Historico' />
-            </ListItemIcon>
+            <Tooltip title='Historico' placement='right' TransitionComponent={Zoom} arrow>
+              <ListItemIcon sx={{ height: theme.spacing(3.5) }}>
+                <img src={Historico_svg} alt='Historico' />
+              </ListItemIcon>
+            </Tooltip>
             <ListItemText primary='Histórios' />
           </ListItemButton>
         </List>
@@ -52,9 +58,11 @@ export const Financas = (props) => {
         <List component='div' disablePadding dense>
           <ListItemButton selected={props.selectedIndex === 1.14}
             onClick={(event) => props.handleListItemClick(event, 1.14, false, 'segmentos')}>
-            <ListItemIcon sx={{ height: theme.spacing(3.5) }}>
-              <img src={Segmentos_svg} alt='Segmentos' />
-            </ListItemIcon>
+            <Tooltip title='Segmentos' placement='right' TransitionComponent={Zoom} arrow>
+              <ListItemIcon sx={{ height: theme.spacing(3.5) }}>
+                <img src={Segmentos_svg} alt='Segmentos' />
+              </ListItemIcon>
+            </Tooltip>
             <ListItemText primary='Segmentos' />
           </ListItemButton>
         </List>
@@ -62,9 +70,11 @@ export const Financas = (props) => {
         <List component='div' disablePadding dense>
           <ListItemButton selected={props.selectedIndex === 1.15}
             onClick={(event) => props.handleListItemClick(event, 1.15, false, 'condicaoPg')}>
-            <ListItemIcon sx={{ height: theme.spacing(3.5) }}>
-              <img src={CondicaoPg_svg} alt='Condição de Pagamento' />
-            </ListItemIcon>
+            <Tooltip title='Condição de Pagamento' placement='right' TransitionComponent={Zoom} arrow>
+              <ListItemIcon sx={{ height: theme.spacing(3.5) }}>
+                <img src={CondicaoPg_svg} alt='Condição de Pagamento' />
+              </ListItemIcon>
+            </Tooltip>
             <ListItemText primary='Condição de Pg' />
           </ListItemButton>
         </List>
@@ -72,9 +82,11 @@ export const Financas = (props) => {
         <List component='div' disablePadding dense>
           <ListItemButton selected={props.selectedIndex === 1.16}
             onClick={(event) => props.handleListItemClick(event, 1.16, false, 'contratos')}>
-            <ListItemIcon sx={{ height: theme.spacing(3.5) }}>
-              <img src={Contratos_svg} alt='Contratos' />
-            </ListItemIcon>
+            <Tooltip title='Contratos' placement='right' TransitionComponent={Zoom} arrow>
+              <ListItemIcon sx={{ height: theme.spacing(3.5) }}>
+                <img src={Contratos_svg} alt='Contratos' />
+              </ListItemIcon>
+            </Tooltip>
             <ListItemText primary='Contratos' />
           </ListItemButton>
         </List>
@@ -84,9 +96,11 @@ export const Financas = (props) => {
           <List component='div' disablePadding dense>
             <ListItemButton selected={props.selectedIndex === 1.17}
               onClick={(event) => props.handleListItemClick(event, 1.17, false, 'cartoes')}>
-              <ListItemIcon sx={{ height: theme.spacing(3.5) }}>
-                <img src={Cartoes_svg} alt='Cartões' />
-              </ListItemIcon>
+              <Tooltip title='Cartões' placement='right' TransitionComponent={Zoom} arrow>
+                <ListItemIcon sx={{ height: theme.spacing(3.5) }}>
+                  <img src={Cartoes_svg} alt='Cartões' />
+                </ListItemIcon>
+              </Tooltip>
               <ListItemText primary='Cartões' />
             </ListItemButton>
           </List>
@@ -97,9 +111,11 @@ export const Financas = (props) => {
           <List component='div' disablePadding dense>
             <ListItemButton selected={props.selectedIndex === 1.18}
               onClick={(event) => props.handleListItemClick(event, 1.18, false, 'caixas')}>
-              <ListItemIcon sx={{ height: theme.spacing(3.5) }}>
-                <img src={Caixas_svg} alt='Caixas' />
-              </ListItemIcon>
+              <Tooltip title='Caixas' placement='right' TransitionComponent={Zoom} arrow>
+                <ListItemIcon sx={{ height: theme.spacing(3.5) }}>
+                  <img src={Caixas_svg} alt='Caixas' />
+                </ListItemIcon>
+              </Tooltip>
               <ListItemText primary='Caixas' />
             </ListItemButton>
           </List>
