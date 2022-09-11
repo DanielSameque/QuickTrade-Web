@@ -11,7 +11,7 @@ import Cartoes from '../../components/cadastros/financas/Cartoes';
 import Caixas from '../../components/cadastros/financas/Caixas';
 import Lancamentos from '../../components/lancamentos'
 
-import './style.css'
+// import './style.css'
 import { MenuLateral } from '../../components';
 import { MenuSuperior } from '../../components';
 import { Alert, Snackbar } from '@mui/material';

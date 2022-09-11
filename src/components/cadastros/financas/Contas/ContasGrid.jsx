@@ -9,6 +9,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import PrintIcon from '@mui/icons-material/Print';
 import ContasForm from './ContasForm';
+import { Box } from '@mui/material';
 
 const columns = [
   { field: 'id', headerName: 'Id', width: 100, hideable: false, headerClassName: 'theme-header-grid' },
@@ -54,21 +55,26 @@ const columns = [
 const ContasGrid = () => {
   const [contas, setContas] = useState([]);
 
+
+
   useEffect(() => {
-    api.get('v1/contas')
-      .then(response => {
-        setContas(response.data)
-      })
-      .catch(err => {
-        console.log(err)
-      })
+    // api.get('v1/contas')
+    //   .then(response => {
+    //     setContas(response.data)
+    //   })
+    //   .catch(err => {
+    //     console.log(err)
+    //   })
+    setContas([
+      { id: 1, nome: 'Nubank', tipo: 'Conta', saldo: (15000.00).toLocaleString('pt-br', { style: 'currency', currency: 'BRL' }) }
+    ])
   }, [])
 
   return (
-    <>
+    <Box>
       <GridSimples rows={contas} columns={columns} />
       <ContasForm name='nomeCompleto' />
-    </>)
+    </Box >)
 }
 
 export default ContasGrid

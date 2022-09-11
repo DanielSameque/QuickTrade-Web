@@ -96,7 +96,7 @@ export const MenuLateral = ({ children }) => {
               </Typography>
             </Box>
 
-            <Divider />
+            {/* <Divider /> */}
 
             <Box flex={1} >
               <List component='nav' onClick={null/*onClickList*/} sx={{ padding: 0 }}>
@@ -111,7 +111,7 @@ export const MenuLateral = ({ children }) => {
                   <ListItemText primary='DashBoard' />
                 </ListItemButton>
 
-                <Divider />
+                {/* <Divider /> */}
 
                 <ListItemButton selected={selectedIndex === 1.00}
                   sx={{ bgcolor: openListCadatros ? theme.palette.primary.dark : null }}
@@ -144,7 +144,7 @@ export const MenuLateral = ({ children }) => {
 
                 <Financas openListFinancas={openListFinancas} selectedIndex={selectedIndex} handleListItemClick={handleListItemClick} />
 
-                <Divider />
+                {/* <Divider /> */}
 
                 <Collapse in={openListCadatros} timeout='auto' unmountOnExit>
                   <List component='div' disablePadding dense
@@ -165,7 +165,7 @@ export const MenuLateral = ({ children }) => {
 
                 <PessoasBens openListPessoasBens={openListPessoasBens} selectedIndex={selectedIndex} handleListItemClick={handleListItemClick} />
 
-                <Divider />
+                {/* <Divider /> */}
 
                 <ListItemButton selected={selectedIndex === 2} onClick={(event) => handleListItemClick(event, 2, true, 'lancamentos')}
                   sx={{ bgcolor: openListLancamentos ? theme.palette.primary.dark : null }}
@@ -179,7 +179,7 @@ export const MenuLateral = ({ children }) => {
                   {openListLancamentos ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
                 </ListItemButton>
 
-                <Divider />
+                {/* <Divider /> */}
 
               </List>
             </Box>
