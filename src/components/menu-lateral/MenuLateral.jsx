@@ -30,6 +30,7 @@ export const MenuLateral = ({ children }) => {
   const [openListCadatros, setOpenListCadatros] = useState(false)
   const [openListFinancas, setOpenListFinancas] = useState(false)
   const [openListPessoasBens, setOpenListPessoasBens] = useState(false)
+  const [openListLancamentos, setOpenListLancamentos] = useState(false)
   const [selectedIndex, setSelectedIndex] = useState(0)
 
   const handleListItemClick = (event, index, collapse, list) => {
@@ -59,6 +60,9 @@ export const MenuLateral = ({ children }) => {
         return (navigate('/cadastros/financas/cartoes'), isDrawerOpen && smDown ? toggleDrawerOpen() : null, AddTab(index, 'Cartões'))
       case 'caixas':
         return (navigate('/cadastros/financas/caixas'), isDrawerOpen && smDown ? toggleDrawerOpen() : null, AddTab(index, 'Caixas'))
+      case ('lancamentos'):
+        if (openListLancamentos === false) { return (setOpenListLancamentos(!openListLancamentos)) }
+        else { return (setOpenListLancamentos(false), setOpenListFinancas(false), setOpenListPessoasBens(false)) }
       default:
         return false
     }
@@ -110,6 +114,7 @@ export const MenuLateral = ({ children }) => {
                 <Divider />
 
                 <ListItemButton selected={selectedIndex === 1.00}
+                  sx={{ bgcolor: openListCadatros ? theme.palette.primary.dark : null }}
                   onClick={(event) => handleListItemClick(event, 1.00, true, 'cadastros')}>
                   <Tooltip title='Cadastros' placement='right' TransitionComponent={Zoom} arrow>
                     <ListItemIcon sx={{ height: theme.spacing(3.5) }}>
@@ -162,14 +167,16 @@ export const MenuLateral = ({ children }) => {
 
                 <Divider />
 
-                <ListItemButton selected={selectedIndex === 2} onClick={(event) => handleListItemClick(event, 6)}>
+                <ListItemButton selected={selectedIndex === 2} onClick={(event) => handleListItemClick(event, 2, true, 'lancamentos')}
+                  sx={{ bgcolor: openListLancamentos ? theme.palette.primary.dark : null }}
+                >
                   <Tooltip title='Lançamentos' placement='right' TransitionComponent={Zoom} arrow>
                     <ListItemIcon sx={{ height: theme.spacing(3.5) }}>
                       <img src={Lancamentos_svg} alt='Lançamentos' />
                     </ListItemIcon >
                   </Tooltip>
                   <ListItemText primary='Lançamentos' />
-                  {false ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+                  {openListLancamentos ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
                 </ListItemButton>
 
                 <Divider />
