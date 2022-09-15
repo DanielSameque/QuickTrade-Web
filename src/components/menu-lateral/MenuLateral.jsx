@@ -1,5 +1,5 @@
 import { useDrawerContext, useTabContext } from '../../contexts'
-import { Avatar, Drawer, useTheme, Divider, List, ListItemButton, ListItemIcon, ListItemText, useMediaQuery, Typography, Collapse, Tooltip, Zoom } from '@mui/material'
+import { Avatar, Drawer, useTheme, List, ListItemButton, ListItemIcon, ListItemText, useMediaQuery, Typography, Collapse, Tooltip, Zoom } from '@mui/material'
 import { Box } from '@mui/system'
 
 import QuicktradeLogo_svg from '../../assets/imgsys/QuickTrade.svg'
@@ -45,7 +45,7 @@ export const MenuLateral = ({ children }) => {
       case 'pessoasbens':
         return (setOpenListPessoasBens(!openListPessoasBens))
       case 'contas':
-        return (navigate('/cadastros/financas/contas'), isDrawerOpen && smDown ? toggleDrawerOpen() : null, AddTab(index, 'Contas'))
+        return (navigate('/cadastros/financas/ContasGrid'), isDrawerOpen && smDown ? toggleDrawerOpen() : null, AddTab(index, 'Contas'))
       case 'centrodecusto':
         return (navigate('/cadastros/financas/centrodecusto'), isDrawerOpen && smDown ? toggleDrawerOpen() : null, AddTab(index, 'Centro de Custo'))
       case 'historicos':
@@ -96,8 +96,6 @@ export const MenuLateral = ({ children }) => {
               </Typography>
             </Box>
 
-            {/* <Divider /> */}
-
             <Box flex={1} >
               <List component='nav' onClick={null/*onClickList*/} sx={{ padding: 0 }}>
 
@@ -110,8 +108,6 @@ export const MenuLateral = ({ children }) => {
                   </Tooltip>
                   <ListItemText primary='DashBoard' />
                 </ListItemButton>
-
-                {/* <Divider /> */}
 
                 <ListItemButton selected={selectedIndex === 1.00}
                   sx={{ bgcolor: openListCadatros ? theme.palette.primary.dark : null }}
@@ -144,8 +140,6 @@ export const MenuLateral = ({ children }) => {
 
                 <Financas openListFinancas={openListFinancas} selectedIndex={selectedIndex} handleListItemClick={handleListItemClick} />
 
-                {/* <Divider /> */}
-
                 <Collapse in={openListCadatros} timeout='auto' unmountOnExit>
                   <List component='div' disablePadding dense
                     sx={{ bgcolor: openListPessoasBens ? theme.palette.primary.dark : null }}
@@ -165,8 +159,6 @@ export const MenuLateral = ({ children }) => {
 
                 <PessoasBens openListPessoasBens={openListPessoasBens} selectedIndex={selectedIndex} handleListItemClick={handleListItemClick} />
 
-                {/* <Divider /> */}
-
                 <ListItemButton selected={selectedIndex === 2} onClick={(event) => handleListItemClick(event, 2, true, 'lancamentos')}
                   sx={{ bgcolor: openListLancamentos ? theme.palette.primary.dark : null }}
                 >
@@ -178,8 +170,6 @@ export const MenuLateral = ({ children }) => {
                   <ListItemText primary='Lançamentos' />
                   {openListLancamentos ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
                 </ListItemButton>
-
-                {/* <Divider /> */}
 
               </List>
             </Box>

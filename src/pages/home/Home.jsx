@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { DashBoard, MenuAbas } from '../../components';
-import ContasGrid from '../../components/cadastros/financas/Contas/ContasGrid';
 import CentrodeCusto from '../../components/cadastros/financas/CentrodeCusto'
 import Historicos from '../../components/cadastros/financas/Historicos'
 import Segmentos from '../../components/cadastros/financas/Segmentos'
@@ -10,14 +9,17 @@ import Contratos from '../../components/cadastros/financas/Contratos';
 import Cartoes from '../../components/cadastros/financas/Cartoes';
 import Caixas from '../../components/cadastros/financas/Caixas';
 import Lancamentos from '../../components/lancamentos'
+import { ContasForm, ContasGrid } from '../../components/cadastros/financas/Contas';
 
-// import './style.css'
+//import './style.js'
 import { MenuLateral } from '../../components';
 import { MenuSuperior } from '../../components';
-import { Alert, Snackbar } from '@mui/material';
+import { Alert, Snackbar, useTheme } from '@mui/material';
+import { Box, styled } from '@mui/system';
 
 function Home() {
   const [openSnackbar, setOpenSnackbar] = useState(true);
+  const theme = useTheme()
 
   const handleClose = (event, reason) => {
     if (reason === 'clickaway') {
@@ -25,15 +27,45 @@ function Home() {
     }
     setOpenSnackbar(false);
   };
-  return (
-    <>
 
+  const ThemeHome = styled(Box, {})({
+    '&::-webkit-scrollbar': {
+      width: 10
+    },
+    '&::-webkit-scrollbar-track': {
+      backgroundColor: theme.palette.background.default
+    },
+    '&::-webkit-scrollbar-thumb': {
+      backgroundColor: theme.palette.primary.main,
+      borderRadius: 0,
+      border: '1px solid ' + theme.palette.background.default
+    },
+    '*::-webkit-scrollbar': {
+      width: 10
+    },
+    '*::-webkit-scrollbar-track': {
+      backgroundColor: theme.palette.background.default
+    },
+    '*::-webkit-scrollbar-thumb': {
+      backgroundColor: theme.palette.primary.main,
+      borderRadius: 0,
+      border: '1px solid ' + theme.palette.background.default
+    }
+  });
+
+  return (
+    <ThemeHome
+      sx={{
+        overflowX: 'hidden'
+      }}
+    >
       <MenuLateral>
         <MenuSuperior />
         <MenuAbas />
         <Routes>
           <Route path="/" element={<DashBoard />} />
-          <Route path="/cadastros/financas/contas" element={<ContasGrid />} />
+          <Route path="/cadastros/financas/ContasGrid" element={<ContasGrid />} />
+          <Route path="/cadastros/financas/ContasForm" element={<ContasForm />} />
           <Route path="/cadastros/financas/centrodecusto" element={<CentrodeCusto />} />
           <Route path="/cadastros/financas/historicos" element={<Historicos />} />
           <Route path="/cadastros/financas/segmentos" element={<Segmentos />} />
@@ -52,7 +84,7 @@ function Home() {
           Bem Vindo(a)
         </Alert>
       </Snackbar>
-    </>
+    </ThemeHome>
   )
 }
 
