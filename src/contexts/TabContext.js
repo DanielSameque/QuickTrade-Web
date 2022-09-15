@@ -9,7 +9,6 @@ export const useTabContext = () => {
 
 export const TabProvider = ({ children }) => {
   const [tabArray, setTabArray] = useState([])
-
   const [tabPosition, setTabPosition] = useState()
   const navigate = useNavigate()
 
@@ -24,26 +23,28 @@ export const TabProvider = ({ children }) => {
       setTabPosition(tabArrayClone[tabArrayClone.length - 1])
     }
     //console.log(newPosition)
-    // switch (newPosition) {
-    //   case 1.11:
-    //     return navigate('/cadastros/financas/ContasGrid')
-    //   case 1.12:
-    //     return navigate('/cadastros/financas/centrodecusto')
-    //   case 1.13:
-    //     return navigate('/cadastros/financas/historicos')
-    //   case 1.14:
-    //     return navigate('/cadastros/financas/segmentos')
-    //   case 1.15:
-    //     return navigate('/cadastros/financas/condicaoPg')
-    //   case 1.16:
-    //     return navigate('/cadastros/financas/contratos')
-    //   case 1.17:
-    //     return navigate('/cadastros/financas/cartoes')
-    //   case 1.18:
-    //     return navigate('/cadastros/financas/caixas')
-    //   default:
-    //     return navigate('/')
-    // }
+    switch (newPosition) {
+      case 0.0:
+        return navigate('/')
+      case 1.11:
+        return navigate('/cadastros/financas/ContasGrid')
+      case 1.12:
+        return navigate('/cadastros/financas/centrodecusto')
+      case 1.13:
+        return navigate('/cadastros/financas/historicos')
+      case 1.14:
+        return navigate('/cadastros/financas/segmentos')
+      case 1.15:
+        return navigate('/cadastros/financas/condicaoPg')
+      case 1.16:
+        return navigate('/cadastros/financas/contratos')
+      case 1.17:
+        return navigate('/cadastros/financas/cartoes')
+      case 1.18:
+        return navigate('/cadastros/financas/caixas')
+      default:
+        return navigate('/')
+    }
   }
   const AddTab = (tabId, tabName) => {
     setTabPosition(tabId)
@@ -69,7 +70,31 @@ export const TabProvider = ({ children }) => {
     setTabArray(tabUpdated)
 
     const tabArrayClone = tabUpdated.map(tabArray => tabArray.id)
-    setTabPosition(tabArrayClone[tabArrayClone.length - 1])
+    if (tabPosition === tabId) {
+      setTabPosition(tabArrayClone[tabArrayClone.length - 1])
+      switch (tabArrayClone[tabArrayClone.length - 1]) {
+        case 0.0:
+          return navigate('/')
+        case 1.11:
+          return navigate('/cadastros/financas/ContasGrid')
+        case 1.12:
+          return navigate('/cadastros/financas/centrodecusto')
+        case 1.13:
+          return navigate('/cadastros/financas/historicos')
+        case 1.14:
+          return navigate('/cadastros/financas/segmentos')
+        case 1.15:
+          return navigate('/cadastros/financas/condicaoPg')
+        case 1.16:
+          return navigate('/cadastros/financas/contratos')
+        case 1.17:
+          return navigate('/cadastros/financas/cartoes')
+        case 1.18:
+          return navigate('/cadastros/financas/caixas')
+        default:
+          return navigate('/')
+      }
+    }
   }
 
   return (

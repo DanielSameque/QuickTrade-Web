@@ -14,7 +14,7 @@ import Lancamentos_svg from '../../assets/icons/Lancamentos.svg'
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Financas from './Financas'
 import PessoasBens from './PessoasBens'
@@ -36,7 +36,8 @@ export const MenuLateral = ({ children }) => {
   const handleListItemClick = (event, index, collapse, list) => {
     setSelectedIndex(index);
     switch (list) {
-      case ('dashboard'): return (navigate('/'))
+      case ('dashboard'):
+        return (navigate('/'), isDrawerOpen && smDown ? toggleDrawerOpen() : null, AddTab(index, 'DashBoard'))
       case ('cadastros'):
         if (openListCadatros === false) { return (setOpenListCadatros(!openListCadatros)) }
         else { return (setOpenListCadatros(false), setOpenListFinancas(false), setOpenListPessoasBens(false)) }
@@ -53,7 +54,7 @@ export const MenuLateral = ({ children }) => {
       case 'segmentos':
         return (navigate('/cadastros/financas/segmentos'), isDrawerOpen && smDown ? toggleDrawerOpen() : null, AddTab(index, 'Segmentos'))
       case 'condicaoPg':
-        return (navigate('/cadastros/financas/condicaopg'), isDrawerOpen && smDown ? toggleDrawerOpen() : null, AddTab(index, 'Condição de Pg.'))
+        return (navigate('/cadastros/financas/condicaoPg'), isDrawerOpen && smDown ? toggleDrawerOpen() : null, AddTab(index, 'Condição de Pg.'))
       case 'contratos':
         return (navigate('/cadastros/financas/contratos'), isDrawerOpen && smDown ? toggleDrawerOpen() : null, AddTab(index, 'Contratos'))
       case 'cartoes':
@@ -72,9 +73,10 @@ export const MenuLateral = ({ children }) => {
   //   return (isDrawerOpen && !smDown ? (toggleDrawerOpen()) : null)
   // }
 
-  // useEffect(() => {
-  //   setOpenListCadatros(false); setOpenListFinancas(false); setOpenListPessoasBens(false)
-  // }, [isDrawerOpen]);
+  useEffect(() => {
+    //   setOpenListCadatros(false); setOpenListFinancas(false); setOpenListPessoasBens(false)
+    handleListItemClick(null, 0.00, false, 'dashboard')
+  }, []);
 
   return (
     <>
@@ -100,7 +102,7 @@ export const MenuLateral = ({ children }) => {
               <List component='nav' onClick={null/*onClickList*/} sx={{ padding: 0 }}>
 
                 <ListItemButton selected={selectedIndex === 0}
-                  onClick={(event) => handleListItemClick(event, 0, false, 'dashboard')}>
+                  onClick={(event) => handleListItemClick(event, 0.00, false, 'dashboard')}>
                   <Tooltip title='DashBoard' placement='right' TransitionComponent={Zoom} arrow>
                     <ListItemIcon sx={{ height: theme.spacing(3.5) }}>
                       <img src={DashBoard_svg} alt='DashBoard' />
