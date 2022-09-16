@@ -1,17 +1,17 @@
 import { useTabContext } from '../../contexts';
 import { Tabs, Tab, Box, useTheme } from '@mui/material';
 import { Close } from '@mui/icons-material';
-import ContasGrid from '../cadastros/financas/Contas/ContasGrid';
-import CentrodeCusto from '../cadastros/financas/CentrodeCusto';
-import Historicos from '../cadastros/financas/Historicos';
-import Segmentos from '../cadastros/financas/Segmentos';
-import CondicaoPg from '../cadastros/financas/CondicaoPg';
-import Contratos from '../cadastros/financas/Contratos';
-import Cartoes from '../cadastros/financas/Cartoes';
-import Caixas from '../cadastros/financas/Caixas';
-import { DashBoard } from '../dashboard/DashBoard';
-import { useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
+// import ContasGrid from '../cadastros/financas/Contas/ContasGrid';
+// import CentrodeCusto from '../cadastros/financas/CentrodeCusto';
+// import Historicos from '../cadastros/financas/Historicos';
+// import Segmentos from '../cadastros/financas/Segmentos';
+// import CondicaoPg from '../cadastros/financas/CondicaoPg';
+// import Contratos from '../cadastros/financas/Contratos';
+// import Cartoes from '../cadastros/financas/Cartoes';
+// import Caixas from '../cadastros/financas/Caixas';
+// import { DashBoard } from '../dashboard/DashBoard';
+// import { useNavigate } from 'react-router-dom';
+// import { useEffect } from 'react';
 
 // function TabPanel(props) {
 //   const { children, value, index, ...other } = props;

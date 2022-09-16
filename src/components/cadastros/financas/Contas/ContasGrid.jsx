@@ -39,7 +39,7 @@ export const ContasGrid = () => {
         <GridActionsCellItem
           icon={<EditIcon />}
           label="Alterar"
-          onClick={() => (navigate('/cadastros/financas/ContasForm'))}
+          onClick={() => (navigate(`/cadastros/financas/ContasForm/${1}`))}
         //showInMenu
         />,
         // <GridActionsCellItem
