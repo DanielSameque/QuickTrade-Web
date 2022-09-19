@@ -10,3 +10,4 @@ npm install --save gh-pages
 npm install -g serve
 npm i @unform/web @unform/core
 npm install @mui/material @mui/styled-engine-sc styled-components
+npm install --save react-google-charts
