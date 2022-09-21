@@ -1,4 +1,4 @@
-import { LayoutBaseDePagina } from "../../layouts"
+//import { LayoutBaseDePagina } from "../../layouts"
 import { Chart } from "react-google-charts";
 
 export const data = [

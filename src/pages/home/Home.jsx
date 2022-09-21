@@ -33,23 +33,23 @@ function Home() {
       width: 10
     },
     '&::-webkit-scrollbar-track': {
-      backgroundColor: theme.palette.background.default
+      backgroundColor: theme.palette.background.paper
     },
     '&::-webkit-scrollbar-thumb': {
       backgroundColor: theme.palette.primary.main,
       borderRadius: 0,
-      border: '1px solid ' + theme.palette.background.default
+      border: '1px solid ' + theme.palette.background.paper
     },
     '*::-webkit-scrollbar': {
       width: 10
     },
     '*::-webkit-scrollbar-track': {
-      backgroundColor: theme.palette.background.default
+      backgroundColor: theme.palette.background.paper
     },
     '*::-webkit-scrollbar-thumb': {
       backgroundColor: theme.palette.primary.main,
       borderRadius: 0,
-      border: '1px solid ' + theme.palette.background.default
+      border: '1px solid ' + theme.palette.background.paper
     }
   });
 
@@ -65,7 +65,7 @@ function Home() {
         <Routes>
           <Route path="/" element={<DashBoard />} />
           <Route path="/cadastros/financas/ContasGrid" element={<ContasGrid />} />
-          <Route path="/cadastros/financas/ContasForm" element={<ContasForm />} />
+          <Route path="/cadastros/financas/ContasForm/:id" element={<ContasForm />} />
           <Route path="/cadastros/financas/centrodecusto" element={<CentrodeCusto />} />
           <Route path="/cadastros/financas/historicos" element={<Historicos />} />
           <Route path="/cadastros/financas/segmentos" element={<Segmentos />} />

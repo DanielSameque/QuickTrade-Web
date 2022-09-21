@@ -1,21 +1,20 @@
+import { useEffect, useState } from 'react'
 import { useDrawerContext, useTabContext } from '../../contexts'
+
+import { useNavigate } from 'react-router-dom'
+
 import { Avatar, Drawer, useTheme, List, ListItemButton, ListItemIcon, ListItemText, useMediaQuery, Typography, Collapse, Tooltip, Zoom } from '@mui/material'
 import { Box } from '@mui/system'
 
 import QuicktradeLogo_svg from '../../assets/imgsys/QuickTrade.svg'
-
 import DashBoard_svg from '../../assets/icons/DashBoard.svg'
-
 import Cadastros_svg from '../../assets/icons/Cadastros.svg'
 import Financas_svg from '../../assets/icons/Financas.svg'
 import PessoasBens_svg from '../../assets/icons/PessoasBens.svg'
-
 import Lancamentos_svg from '../../assets/icons/Lancamentos.svg'
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
-import { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 import Financas from './Financas'
 import PessoasBens from './PessoasBens'
 
@@ -69,14 +68,8 @@ export const MenuLateral = ({ children }) => {
     }
   };
 
-  // const onClickList = () => {
-  //   return (isDrawerOpen && !smDown ? (toggleDrawerOpen()) : null)
-  // }
-
-  useEffect(() => {
-    //   setOpenListCadatros(false); setOpenListFinancas(false); setOpenListPessoasBens(false)
-    handleListItemClick(null, 0.00, false, 'dashboard')
-  }, []);
+  // eslint-disable-next-line
+  useEffect(() => { handleListItemClick(null, 0.00, false, 'dashboard') }, []);
 
   return (
     <>
@@ -85,7 +78,7 @@ export const MenuLateral = ({ children }) => {
           <Box
             width={theme.spacing(30)}
             height='100%'
-            display='flex' flexDirection='column' sx={{ overflowX: 'hidden' }} >
+            display='flex' flexDirection='column' sx={{ overflowX: 'hidden' }}  >
             <Box width='100%' height={theme.spacing(7.9)} display='flex' alignItems='center' justifyContent='left' paddingX={1.5} gap={2}>
               <Avatar
                 sx={{ height: theme.spacing(5), width: theme.spacing(5) }}
@@ -180,7 +173,7 @@ export const MenuLateral = ({ children }) => {
       </Drawer >
 
       <Box
-        height='100vh'
+        height='100vh' padding={0}
         marginLeft={smDown ? 0 : theme.spacing(isDrawerOpen && !smDown ? 8 : 30)}
         sx={{ transition: isDrawerOpen && !smDown ? 'all .2s ease-in-out' : 'all .27s ease-in-out' }}
       >
