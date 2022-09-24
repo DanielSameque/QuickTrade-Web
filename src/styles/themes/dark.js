@@ -22,5 +22,10 @@ export const DarkTheme = createTheme({
     appbar: {
       main: '#808080'
     }
+  },
+  typography: {
+    allVariants: {
+      color: '#F0F0F0'
+    }
   }
 })

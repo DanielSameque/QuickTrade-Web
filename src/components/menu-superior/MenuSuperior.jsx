@@ -64,10 +64,7 @@ export const MenuSuperior = () => {
           anchorEl={anchorEl}
           open={open}
           onClose={handleClose}
-          MenuListProps={{
-            'aria-labelledby': 'perfil-button',
-          }}
-        >
+          MenuListProps={{ 'aria-labelledby': 'perfil-button', }}>
           <MenuItem onClick={handleClose}>Perfil</MenuItem>
           <MenuItem onClick={handleClose}>Logout</MenuItem>
         </Menu>

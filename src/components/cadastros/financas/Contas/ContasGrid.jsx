@@ -11,23 +11,15 @@ import { useNavigate } from 'react-router-dom'
 import { Box } from '@mui/material';
 
 export const ContasGrid = () => {
-  // const AlterarCadastro = () => {
   const navigate = useNavigate()
-  //   navigate('/cadastros/financas/Segmentos')
-  // }
-
   const columns = [
     { field: 'id', headerName: 'Id', width: 100, hideable: false, headerClassName: 'theme-header-grid' },
-    { field: 'nome', headerName: 'Nome', flex: 1, headerClassName: 'theme-header-grid' },
+    { field: 'nome', headerName: 'Nome', flex: 2, headerClassName: 'theme-header-grid' },
     { field: 'tipo', headerName: 'Tipo', width: 200, headerClassName: 'theme-header-grid' },
     {
       field: 'saldo', headerName: 'Saldo', width: 200, type: 'number',
       description: 'Saldo da Conta', headerClassName: 'theme-header-grid',
-      renderHeader: () => (
-        <>
-          {'Saldo '}💹
-        </>
-      )
+      renderHeader: () => (<>{'Saldo '}💹</>)
     },
     {
       headerName: 'Opções',
@@ -42,12 +34,6 @@ export const ContasGrid = () => {
           onClick={() => navigate(`/cadastros/financas/ContasForm/${params.id}`)}
         //showInMenu
         />,
-        // <GridActionsCellItem
-        //   icon={<PrintIcon />}
-        //   label="imprimir"
-        // //onClick={duplicateUser(params.id)}
-        // //showInMenu
-        // />,
         <GridActionsCellItem
           icon={<DeleteIcon color='error' />}
           label='Excluir'
@@ -59,7 +45,6 @@ export const ContasGrid = () => {
   ]
 
   const [contas, setContas] = useState([]);
-  //const theme = useTheme()
   useEffect(() => {
     api.get('v1/contas')
       .then(response => {
@@ -107,10 +92,7 @@ export const ContasGrid = () => {
     ])
   }, [])
   return (
-    <Box sx={{
-      display: 'flex', justifyContent: 'center',
-      //boxShadow: '10px', margin: '0px', padding: '0px', width: '100%',
-    }}>
+    <Box sx={{ display: 'flex', justifyContent: 'center' }}>
       <GridSimples rows={contas} columns={columns} />
     </Box>)
 }
